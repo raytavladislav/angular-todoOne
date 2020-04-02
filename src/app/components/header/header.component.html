@@ -1,0 +1,9 @@
+<header [ngClass]="{
+    'first': true,
+    'second': isLogined
+}">
+    <h1>{{title}}</h1>
+    <p [innerHTML]='subName'>header works!</p>
+    <button (click)="login($event)">LogIn</button>
+</header>
+
