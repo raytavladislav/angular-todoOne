@@ -1,9 +1,20 @@
-<header [ngClass]="{
-    'first': true,
-    'second': isLogined
-}">
-    <h1>{{title}}</h1>
-    <p [innerHTML]='subName'>header works!</p>
-    <button (click)="login($event)">LogIn</button>
-</header>
+<header class="container-fluid my-class first app-header"
+    [class.second] = "isLogined">
 
+    <h1 class="title">{{title}}</h1>
+
+    <p class="sub-title"  
+    [innerHTML]="subTitle"></p>
+
+    <!-- <button (click)="login()">Log In</button> -->
+
+    <span class="material-icons">
+        assignment_ind
+    </span>
+</header>
+<!-- 
+<button (click)="addItem('JS')">add JS</button>
+
+<ul *ngFor="let item of dataList; let i = index">
+    <li>{{i + 1 + item}}</li>
+</ul> -->

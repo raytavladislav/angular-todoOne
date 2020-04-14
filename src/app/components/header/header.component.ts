@@ -1,33 +1,48 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, OnChanges, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy, OnChanges {
   @Input() title: string;
+  @Input() subTitle: string;
 
+  @Output() testOutput = new EventEmitter<string>();
+
+  // isType = true
   // title = 'Angular 2Do!'
   isLogined = false;
   titleFontSize = '46px'
-
   subName = 'Educaion!'
+  dataList = ['Angular', 'TS', 'CSS']
+
+
   constructor() { }
 
   ngOnInit() {
-    setTimeout(() =>  {
-      this.subName = '123 Edited';
-    }, 5000);
+    // setTimeout(() =>  {
+    //   this.subName = '123 Edited';
+    // }, 5000);
   }
 
+  ngOnDestroy() {
 
-login(event): void {
-  // console.log('LogIn', event)
-  this.isLogined = !this.isLogined;
-  console.log('LogIn', event)
+  }
+
+  ngOnChanges() {
+    
+  }
+
+  login(event): void {
+    console.log('logIn')
+    this.testOutput.emit('Header login works');
 }
 
-
+  // addItem(item: string): void{
+  //   this.dataList.push(item);
+  // }
 
 }

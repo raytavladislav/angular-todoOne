@@ -2,13 +2,20 @@
     padding: 0;
     margin: 0;
 }
-
-header{
-    text-align: center;
+.app-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     left: 0;
-    top: 0;
-    padding: 10px;
+    top: 0; 
     background: lightgreen;
     color: lightyellow;
     width: 100%;
+    min-height: 150px;
+    text-align: center;
 }
+
+// :host{
+//     display: flex;
+// }

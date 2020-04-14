@@ -1,4 +1,9 @@
-<app-header title="Angular 2Do"></app-header>
+<app-header [title]="headerTitle"
+            [subTitle]="headerSubTitle"
+            (testOutput)="testOutputApp($event)">
+</app-header>
+
+<app-todos></app-todos>
 
 <app-main></app-main>
 

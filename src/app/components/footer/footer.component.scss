@@ -4,8 +4,10 @@
 }
 
 footer{
+    position: relative;
     text-align: center;
-    position: fixed;
+    // position: fixed;
+    // overflow: auto;
     left: 0;
     bottom: 0;
     padding: 10px;

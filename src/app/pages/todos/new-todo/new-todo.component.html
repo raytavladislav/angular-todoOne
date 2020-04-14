@@ -1,0 +1,72 @@
+<div class="app-new-todo">
+    <form [formGroup]="newTodoForm" 
+          (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input class="form-control is-invalid"
+                   
+                   type="text"
+                   placeholder="Todo Title"
+                   formControlName="title"
+                   required>
+                   <!-- [ngClass]="(!newTodoForm.controls['title'].errors.minlength)? 'is-invalid':'is-valid'" -->
+
+
+                   <div *ngIf="isSubmit && newTodoForm.get('title').invalid">
+                        <span *ngIf="newTodoForm.get('title').errors.required"
+                              class="text-danger">
+                            Input is required.</span>
+                        <span *ngIf="newTodoForm.get('title').errors.minlength"
+                               class="text-danger">
+                            Input min length 3.</span>
+                    </div>
+                </div>
+        
+            <!-- <div *ngIf="newTodoForm.get('title').invalid &&
+                        newTodoForm.get('title').dirty || newTodoForm.get('title').touched">
+                <span *ngIf="newTodoForm.get('title').errors.required">
+                    Input is required.</span>
+                <span *ngIf="newTodoForm.get('title').errors.minlenght">
+                    Input min length 3.</span>
+            </div>
+        </div> -->
+
+        
+        <div class="form-group">
+            <textarea class="form-control"
+                      rows="10"
+                      placeholder="Todo Description"
+                      formControlName="description">
+            </textarea>
+        </div>
+
+        <footer>
+            <!-- [disabled]="newTodoForm.invalid" -->
+            <button class="btn btn-primary ml-auto  d-flex jusiify-content-between"
+                    [disabled]="newTodoForm.invalid"
+                    type="submit">Save</button>
+        </footer>
+    </form>
+</div>
+
+
+<!-- <form [formGroup]="newTodoForm" 
+(ngSubmit)="onSubmit()"
+class="was-validated">
+<div class="form-group">
+  <input class="form-control is-invalid"
+         id="validationTextarea"
+         type="text"
+         placeholder="Todo Title"
+         formControlName="title"
+         required>
+
+         <div *ngIf="isSubmit && newTodoForm.get('title').invalid">
+              <span *ngIf="newTodoForm.get('title').errors.required"
+                    class="text-danger"
+                    >
+                  Input is required.</span>
+              <span *ngIf="newTodoForm.get('title').errors.minlength"
+                     class="text-danger">
+                  Input min length 3.</span>
+          </div>
+      </div> -->

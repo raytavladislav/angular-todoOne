@@ -1,0 +1,13 @@
+.is-done {
+    text-decoration: line-through;
+}
+
+.todo-description{
+    padding-top: 10px;
+    margin: 0;
+}
+
+li{
+    list-style-type: none;
+}
+

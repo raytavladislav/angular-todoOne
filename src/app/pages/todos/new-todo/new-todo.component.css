@@ -1,0 +1,15 @@
+.app-new-todo {
+    padding-top: 24px;
+    padding-bottom: 20px;
+ 
+    footer {
+        display: flex;
+        justify-content: flex-end;
+        padding-bottom: 24px;
+
+        .button{
+            right: 0;
+        }
+    }
+}
+

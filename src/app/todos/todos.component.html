@@ -1,0 +1,18 @@
+<div class="container app-todos">
+
+    <app-new-todo (newTodo)="addTodo($event)"></app-new-todo>
+
+    <ul *ngIf="todoList" class="list-group">
+        <app-todo-item *ngFor="let item of todoList"
+                       [todo]="item"
+                       class="list-group-item"
+                       (delete)="deleteTodo($event)"
+                       (update)="updateTodo($event)">
+        </app-todo-item>
+    </ul>
+
+    <p  class="text-center" 
+        *ngIf="!todoList">No Data.</p>
+
+</div>
+
