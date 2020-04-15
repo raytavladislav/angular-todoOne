@@ -11,6 +11,12 @@
       "title": "Learn Angular",
       "description": "Test Description",
       "isDone": false
+    },
+    {
+      "title": "Angular CLI",
+      "description": "",
+      "isDone": false,
+      "id": 3
     }
   ]
 }

@@ -10,6 +10,12 @@ import { MainComponent } from './components/main/main.component';
 import { TodosComponent } from './todos/todos.component';
 import { TodoItemComponent } from './pages/todos/todo-item/todo-item.component';
 import { NewTodoComponent } from './pages/todos/new-todo/new-todo.component';
+import { HighlightDirective } from './shared/directives/highlight/highlight.directive';
+import { FilterBySearchPipe } from './shared/pipes/filterBySearch/filter-by-search.pipe';
+import { AppRoutingModule } from './app-routing.module';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { AboutComponent } from './pages/about/about.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +25,16 @@ import { NewTodoComponent } from './pages/todos/new-todo/new-todo.component';
     MainComponent,
     TodosComponent,
     TodoItemComponent,
-    NewTodoComponent
+    NewTodoComponent,
+    HighlightDirective,
+    FilterBySearchPipe,
+    PageNotFoundComponent,
+    AboutComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule

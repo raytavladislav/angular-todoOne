@@ -14,6 +14,7 @@ import { TodoService } from '../core/services/todo/todo.service';
 
 export class TodosComponent implements OnInit, OnDestroy {
   todoList: Array<Todo>;
+  search: string;
 
   private unsubscribe = new Subject();
 
