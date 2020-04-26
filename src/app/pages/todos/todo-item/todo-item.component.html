@@ -1,6 +1,6 @@
 <li class="list-group-item app-todo-item">
     
-    <header class="d-flex flex-row todo-header ">
+    <header class="d-flex flex-row todo-header justify-content-between">
         <div class="d-flex flex-row">
             <span class="material-icons mr-3 check_box"
                   (click)="toggleTodo()">
@@ -13,7 +13,7 @@
             </h5>
         </div>
         
-        <div>
+        <div class="button-group d-flex justify-content-end">
             <button class="btn btn-secondary mr-3 todo-button-group"
                     [disabled]="!todo.description" 
                     (click) = "toggleDetails()">

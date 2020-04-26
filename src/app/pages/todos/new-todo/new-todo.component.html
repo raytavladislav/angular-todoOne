@@ -61,6 +61,7 @@
             <div class="col-6 form-group d-flex justify-content-end">
                 <div class="form-check form-check-inline">
                     <input type="radio"
+                           value="low"
                            id="low"
                            name="todo-priority"
                            class="form-check-input priorityButtons">
@@ -75,6 +76,7 @@
 
                 <div class="form-check form-check-inline">
                     <input type="radio"
+                           value="middle"
                            id="middle"
                            name="todo-priority"
                            class="form-check-input priorityButtons">
@@ -89,6 +91,7 @@
 
                 <div class="form-check form-check-inline">
                     <input type="radio"
+                           value="hight"
                            id="hight"
                            name="todo-priority"
                            class="form-check-input priorityButtons">
@@ -103,6 +106,7 @@
 
                 <div class="form-check form-check-inline">
                     <input type="radio"
+                           value="all"
                            id="all"
                            name="todo-priority"
                            class="form-check-input priorityButtons">
@@ -148,31 +152,6 @@
         </footer>
 
     </div>
-
-
-    <!-- <form [formGroup]="newTodoForm" 
-          (ngSubmit)="onSubmit()"
-          class="was-validated">
-        <div class="form-group">
-            <input class="form-control is-invalid"
-                    id="validationTextarea"
-                    type="text"
-                    placeholder="Todo Title"
-                    formControlName="title"
-                    required>
-
-            <div *ngIf="isSubmit && newTodoForm.get('title').invalid">
-                <span *ngIf="newTodoForm.get('title').errors.required"
-                        class="text-danger"
-                        >
-                    Input is required.</span>
-                <span *ngIf="newTodoForm.get('title').errors.minlength"
-                        class="text-danger">
-                    Input min length 3.</span>
-            </div>
-        </div>
-    </form> -->
-
 </div>
 
 
