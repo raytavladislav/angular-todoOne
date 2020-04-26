@@ -1,10 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, TemplateRef } from '@angular/core';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { Todo } from 'src/app/core/interfaces';
 import { TodoService } from '../core/services/todo/todo.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { NewTodoComponent } from '../pages/todos/new-todo/new-todo.component';
+// import { BsModalService } from 'ngx-bootstrap/modal/ngx-bootstrap-modal';
+// import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal/public_api';
+// import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal/ngx-bootstrap-modal';
 
 @Component({
   selector: 'app-todos',
@@ -15,17 +20,30 @@ import { TodoService } from '../core/services/todo/todo.service';
 export class TodosComponent implements OnInit, OnDestroy {
   todoList: Array<Todo>;
   search: string;
+  modalRef: BsModalRef;
 
   private unsubscribe = new Subject();
 
   constructor(
-    private todoService: TodoService
+    private todoService: TodoService,
+    private modalService: BsModalService
   ) { }
 
    
 
   ngOnInit(): void {
     this.getTodos()
+  }
+
+  openModal() {
+    this.modalRef = this.modalService.show(NewTodoComponent,
+      Object.assign({}, {
+        ignoreBackdropClick: true,
+        initialState: {
+          sumit: this.addTodo.bind(this)
+        }
+      })
+    );
   }
 
   ngOnDestroy(): void {

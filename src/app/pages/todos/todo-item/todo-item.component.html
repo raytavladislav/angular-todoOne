@@ -4,10 +4,11 @@
         <div class="d-flex flex-row">
             <span class="material-icons mr-3 check_box"
                   (click)="toggleTodo()">
-            {{(todo.isDone) ? 'check_box' : 'check_box_outline_blank'}}
+                  {{(todo.isDone) ? 'check_box' : 'check_box_outline_blank'}}
             </span>
-            <h5 class="mr-5" [class.is-done]="todo.isDone"
-            appHighlight>
+            <h5 class="mr-5" 
+                [class.is-done]="todo.isDone"
+                appHighlight>
                 {{todo.title}}
             </h5>
         </div>
@@ -17,8 +18,9 @@
                     [disabled]="!todo.description" 
                     (click) = "toggleDetails()">
                     {{(!isShowDetails) ? 'Show' : 'Hide'}} details</button>
-            <button class="btn btn-outline-danger"
+            <button class="btn btn-outline-danger mr-3"
                     (click)="deleteTodo(todo.id)">Delete</button>
+            <button class="btn btn-first mr-3">Edit</button>
         </div>
     </header>
     

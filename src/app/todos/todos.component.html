@@ -1,6 +1,11 @@
 <div class="container app-todos">
 
-    <app-new-todo (newTodo)="addTodo($event)"></app-new-todo>
+    <!-- <app-new-todo (newTodo)="addTodo($event)"></app-new-todo> -->
+    <button type="button" 
+            class="btn btn-primary" 
+            (click)="openModal()">
+            Create New Todo
+    </button>
 
     <form>
         <div class="form-group">
@@ -8,14 +13,15 @@
                  name="search"
                  type="text"
                  placeholder="Search..."
+                 autocomplete="off"
                  [(ngModel)]="search" />
         </div>
     </form>
 
     <ul *ngIf="todoList" class="list-group">
-        <app-todo-item *ngFor="let item of todoList | filterBySearch:search"
+        <app-todo-item class="todo-item"
+                       *ngFor="let item of todoList | filterBySearch:search"
                        [todo]="item"
-                       class="list-group-item"
                        (delete)="deleteTodo($event)"
                        (update)="updateTodo($event)">
         </app-todo-item>
@@ -25,4 +31,3 @@
         *ngIf="!todoList">No Data.</p>
 
 </div>
-

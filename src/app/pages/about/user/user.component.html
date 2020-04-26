@@ -1,0 +1,20 @@
+<div class="card mb-3">
+    <div class="row no-gutters">
+        <div class="col-md-3">
+            <img [src]="user.picture"
+                 class="card-img-top"
+                 alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                
+                <h5 class="card-title">{{user.firstName}} {{user.lastName}}</h5>
+                <p class="card-text ">{{user.description}}</p>
+                <p class="card-text p-1"><span class="material-icons">mail</span>  {{user.email}}
+                </p>
+                <p class="card-text p-2">Phone Number<span class="material-icons">call</span>:  {{user.phone}}
+            </p>
+            </div>
+        </div>
+    </div>
+</div>

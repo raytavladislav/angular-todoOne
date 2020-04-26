@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Todo } from 'src/app/core/interfaces';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-new-todo',
@@ -9,13 +10,15 @@ import { Todo } from 'src/app/core/interfaces';
 })
 
 export class NewTodoComponent implements OnInit {
-  @Output() newTodo = new EventEmitter<Todo>();
+  // @Output() newTodo = new EventEmitter<Todo>();
 
   newTodoForm: FormGroup;
   isSubmit = false;
-  isValid = false;
+  // isValid = false;
+  // isTrueLength = false;
 
   constructor(
+    private modalRef: BsModalRef,
     private fb: FormBuilder 
    ) { }
 
@@ -25,16 +28,26 @@ export class NewTodoComponent implements OnInit {
 
   onSubmit(): void{
     this.isSubmit = true;
-    this.isValid = true;
+    // this.isValid = true;
 
     if (this.newTodoForm.invalid){
       return;
     }
 
-    this.newTodo.emit(this.newTodoForm.value);
+    // if (this.newTodoForm.get('title').errors.minlength) {
+    //   this.isTrueLength = true;
+    // }
+
+    // this.submit(this.newTodoForm.value);
+    // this.newTodo.emit(this.newTodoForm.value);
 
     this.newTodoForm.reset();
     this.isSubmit = false;
+    this.hideModal();
+  }
+
+  hideModal() {
+    this.modalRef.hide();
   }
 
   private createNewTodoForm(): void{
@@ -47,8 +60,14 @@ export class NewTodoComponent implements OnInit {
         ]
       ],
       description: [''],
-      isDone: [false]
-    })
+      // priority: [
+      //   '',
+      //   Validators.required
+      // ],
+      // isDone: [false]
+    });
   }
+
+  submit(todo: Todo): void {}
 
 }

@@ -1,18 +1,22 @@
-* {
-    padding: 0;
-    margin: 0;
-}
+// * {
+//     padding: 0;
+//     margin: 0;
+// }
 
 footer{
-    position: relative;
+    position: absolute;
     text-align: center;
+    height: 60px;
     // position: fixed;
     // overflow: auto;
-    left: 0;
-    bottom: 0;
-    padding: 10px;
+    left: 0px;
+    bottom: 0px;
+    display: flex;
+    // padding: 10px;
     background: lightgreen;
     color: lightyellow;
     width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 

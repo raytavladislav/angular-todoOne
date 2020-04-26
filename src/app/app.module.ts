@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule }   from '@angular/common/http';
 
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -16,6 +18,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { AboutComponent } from './pages/about/about.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AboutProjectComponent } from './pages/about/about-project/about-project.component';
+import { AboutUsComponent } from './pages/about/about-us/about-us.component';
+import { UserComponent } from './pages/about/user/user.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +35,21 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     FilterBySearchPipe,
     PageNotFoundComponent,
     AboutComponent,
-    NavbarComponent
+    NavbarComponent,
+    AboutProjectComponent,
+    AboutUsComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot()
+  ],
+  entryComponents: [
+    NewTodoComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

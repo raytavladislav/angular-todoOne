@@ -2,21 +2,46 @@
   "todos": [
     {
       "id": 1,
-      "title": "TypeScript",
-      "description": "",
-      "isDone": true
+      "title": "Learn Angular",
+      "description": "Test Description",
+      "isDone": false,
+      "priority": "low"
     },
     {
       "id": 2,
-      "title": "Learn Angular",
-      "description": "Test Description",
-      "isDone": false
+      "title": "Learn JS",
+      "description": "",
+      "isDone": true,
+      "priority": "hight"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Bertram",
+      "lastName": "Christiansen",
+      "picture": "https://randomuser.me/api/portraits/men/21.jpg",
+      "email": "bertram.christiansen@example.com",
+      "phone": "(023)-495-55-21",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam facere aliquid aut deleniti ratione, quia inventore molestiae voluptate adipisci harum!"
     },
     {
-      "title": "Angular CLI",
-      "description": "",
-      "isDone": false,
-      "id": 3
+      "id": 2,
+      "firstName": "Silviara",
+      "lastName": "Santos",
+      "picture": "https://randomuser.me/api/portraits/women/77.jpg",
+      "email": "silviara.santos@example.com",
+      "phone": "(016)-645-86-39",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam facere aliquid aut deleniti ratione, quia inventore molestiae voluptate adipisci harum!"
+    },
+    {
+      "id": 3,
+      "firstName": "Salma",
+      "lastName": "Gundersen",
+      "picture": "https://randomuser.me/api/portraits/women/7.jpg",
+      "email": "salma.gundersen@example.com",
+      "phone": "(321)-653-99-12",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam facere aliquid aut deleniti ratione, quia inventore molestiae voluptate adipisci harum!"
     }
   ]
 }

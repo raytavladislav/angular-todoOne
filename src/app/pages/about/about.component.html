@@ -1,3 +1,26 @@
-<div class="container">
-    <p>about works!</p>
+<div class="container app-about">
+
+    <nav>
+        <ul>
+            <li routerLinkActive="active">
+                <a routerLink="about-project">About Project</a>
+            </li>
+    
+            <li>
+                <a routerLink="about-us">About Us</a>
+            </li>
+    
+            <li>
+                <a routerLink="about-us/:userId"></a>
+            </li>
+    
+    
+    
+        </ul>
+    </nav>
+
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+    
 </div>
