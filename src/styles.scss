@@ -2,3 +2,45 @@
 body{
     font-family: 'Open Sans', sans-serif;
 }
+
+@mixin radio($color) {
+    border: 1px solid $color;
+}
+
+@mixin radioCheck($color) {
+    background-color: $color;
+    box-shadow: 0 0 $color;
+    border-color: $color;
+}
+
+.low .custom-control-label::before {
+    @include radio(green);
+}
+
+.low input:checked + .custom-control-label::before {
+    @include radioCheck(green);
+    }
+
+.middle .custom-control-label::before {
+    @include radio(yellow);
+}
+
+.middle input:checked + .custom-control-label::before {
+    @include radioCheck(yellow)
+}
+
+.hight .custom-control-label::before {
+    @include radio(red);
+}
+
+.hight input:checked + .custom-control-label::before {
+    @include radioCheck(red);
+}
+
+.all .custom-control-label::before {
+    @include radio(#000);
+}
+
+.all input:checked + .custom-control-label::before {
+    @include radioCheck(#000);
+}

@@ -13,35 +13,23 @@
 
     <div class="app-new-todo">
         <form [formGroup]="newTodoForm">
-            <!-- class="was-validated" -->
             <div class="form-group">
-                <input class="form-control is-invalid"
-                       [ngClass]="{'is-invalid': newTodoForm.dirty && isSubmit && newTodoForm.invalid,
-                                   'is-valid':   newTodoForm.dirty && isSubmit && newTodoForm.valid }"
+                <input class="form-control"
+                       [ngClass]="{'is-invalid': newTodoForm.get('title').dirty && isSubmit && newTodoForm.get('title').invalid,
+                                   'is-valid':   newTodoForm.get('title').dirty && isSubmit && newTodoForm.get('title').valid }"
                        id="validationTextarea"
                        type="text"
                        placeholder="Todo Title"
                        formControlName="title"
                        required>
 
-                <div *ngIf="isSubmit && newTodoForm.get('title').invalid">
-                    <span *ngIf="newTodoForm.get('title').errors.required" class="text-danger">
+                <div *ngIf="isSubmit && newTodoForm.get('title').invalid"  class="text-danger">
+                    <span *ngIf="newTodoForm.get('title').errors.required">
                         Input is required.</span>
-                    <span *ngIf="newTodoForm.get('title').errors.minlength" class="text-danger">
+                    <span *ngIf="newTodoForm.get('title').errors.minlength">
                         Input min length 3.</span>
                 </div>
             </div>
-
-            <!-- <div *ngIf="newTodoForm.get('title').invalid &&
-                        newTodoForm.get('title').dirty || newTodoForm.get('title').touched">
-                <span *ngIf="newTodoForm.get('title').errors.required"
-                      class="text-danger">
-                    Input is required.</span>
-                <span *ngIf="newTodoForm.get('title').errors.minlenght"
-                      class="text-danger">
-                    Input min length 3.</span>
-            </div>
-        </div> -->
 
 
             <div class="form-group">
@@ -51,106 +39,95 @@
                           formControlName="description">
             </textarea>
             </div>
+
+            <footer>
+                <!-- <div class="col-6 form-group d-flex justify-content-end">
+                    <div class="form-check form-check-inline">
+                        <input type="radio"
+                            value="low"
+                            id="low"
+                            name="todo-priority"
+                            class="form-check-input priorityButtons">
+                        <label for="low"
+                            class="form-check-label d-flex align-items-center">
+                            Low
+                            <span class="material-icons  text-danger">
+                                radio_button_unchecked
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input type="radio"
+                            value="middle"
+                            id="middle"
+                            name="todo-priority"
+                            class="form-check-input priorityButtons">
+                        <label for="middle"
+                            class="form-check-label d-flex align-items-center">
+                            Middle
+                            <span class="material-icons text-warning">
+                                radio_button_unchecked
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input type="radio"
+                            value="hight"
+                            id="hight"
+                            name="todo-priority"
+                            class="form-check-input priorityButtons">
+                        <label for="hight"
+                            class="form-check-label d-flex align-items-center">
+                            Hight
+                            <span class="material-icons text-success">
+                                radio_button_unchecked
+                            </span>
+                        </label>
+                    </div> -->
+
+                    <div class="col-6 form-group d-flex justify-content-end">
+                        <div class="custom-control custom-radio custom-control-inline low">
+                          <input
+                            type="radio"
+                            id="customRadioInline1"
+                            name="priority"
+                            class="custom-control-input"
+                            formControlName="priority"
+                            value="low" />
+                          <label class="custom-control-label"
+                                 for="customRadioInline1">
+                                 Low</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline middle">
+                          <input type="radio"
+                                  id="customRadioInline2"
+                                  name="priority"
+                                  class="custom-control-input"
+                                  formControlName="priority"
+                                  value="middle" />
+                          <label class="custom-control-label"
+                                 for="customRadioInline2">
+                                 Middle</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline hight p-r-20">
+                          <input
+                            type="radio"
+                            id="customRadioInline3"
+                            name="priority"
+                            class="custom-control-input"
+                            formControlName="priority"
+                            value="hight" />
+                          <label class="custom-control-label"
+                                 for="customRadioInline3">
+                                 Hight</label>
+                        </div>
+                        <button class="btn btn-primary ml-auto d-flex jusiify-content-between" 
+                                (click)="onSubmit()">Save</button>
+                    </div>
+            </footer>
         </form>
-
-
-
-
-
-        <footer>
-            <div class="col-6 form-group d-flex justify-content-end">
-                <div class="form-check form-check-inline">
-                    <input type="radio"
-                           value="low"
-                           id="low"
-                           name="todo-priority"
-                           class="form-check-input priorityButtons">
-                    <label for="low"
-                           class="form-check-label d-flex align-items-center">
-                        Low
-                        <span class="material-icons  text-danger">
-                            radio_button_unchecked
-                        </span>
-                    </label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                    <input type="radio"
-                           value="middle"
-                           id="middle"
-                           name="todo-priority"
-                           class="form-check-input priorityButtons">
-                    <label for="middle"
-                           class="form-check-label d-flex align-items-center">
-                        Middle
-                        <span class="material-icons text-warning">
-                            radio_button_unchecked
-                        </span>
-                    </label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                    <input type="radio"
-                           value="hight"
-                           id="hight"
-                           name="todo-priority"
-                           class="form-check-input priorityButtons">
-                    <label for="hight"
-                           class="form-check-label d-flex align-items-center">
-                        Hight
-                        <span class="material-icons text-success">
-                            radio_button_unchecked
-                        </span>
-                    </label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                    <input type="radio"
-                           value="all"
-                           id="all"
-                           name="todo-priority"
-                           class="form-check-input priorityButtons">
-                    <label for="all"
-                           class="form-check-label d-flex align-items-center">
-                        All
-                        <span class="material-icons">
-                            radio_button_unchecked
-                        </span>
-                    </label>
-                </div>
-
-                
-                
-
-                <!-- <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio"
-                           id="midlle"
-                           name="customRadioInline1"
-                           class="custom-control-input">
-                    <label for="midlle"
-                           class="custom-control-label badge badge-warning">
-                        Middle priority</label>
-                </div>
-
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio"
-                           id="hight"
-                           name="customRadioInline1"
-                           class="custom-control-input">
-                    <label for="hight" 
-                           class="custom-control-label  badge badge-success">
-                        Hight priority</label>
-                </div> -->
-
-
-
-                <!-- [disabled]="newTodoForm.invalid" -->
-                <button class="btn btn-primary ml-auto d-flex jusiify-content-between" 
-                        
-                        (click)="onSubmit()">Save</button>
-            </div>
-        </footer>
-
     </div>
 </div>
 
@@ -159,110 +136,3 @@
 
 
 
-
-
-<!-- <div class="app-new-todo">
-    <form [formGroup]="newTodoForm" 
-          (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <input class="form-control is-invalid"
-                   
-                   type="text"
-                   placeholder="Todo Title"
-                   formControlName="title"
-                   required> -->
-<!-- комент[ngClass]="(!newTodoForm.controls['title'].errors.minlength)? 'is-invalid':'is-valid'" -->
-<!-- 
-
-                   <div *ngIf="isSubmit && newTodoForm.get('title').invalid">
-                        <span *ngIf="newTodoForm.get('title').errors.required"
-                              class="text-danger">
-                            Input is required.</span>
-                        <span *ngIf="newTodoForm.get('title').errors.minlength"
-                               class="text-danger">
-                            Input min length 3.</span>
-                    </div>
-                </div>
-         -->
-<!-- комент <div *ngIf="newTodoForm.get('title').invalid &&
-                        newTodoForm.get('title').dirty || newTodoForm.get('title').touched">
-                <span *ngIf="newTodoForm.get('title').errors.required">
-                    Input is required.</span>
-                <span *ngIf="newTodoForm.get('title').errors.minlenght">
-                    Input min length 3.</span>
-            </div>
-        </div> -->
-<!-- 
-        
-        <div class="form-group">
-            <textarea class="form-control"
-                      rows="10"
-                      placeholder="Todo Description"
-                      formControlName="description">
-            </textarea>
-        </div>
-
-        <footer>
-            <form class="form-row">
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio"
-                           id="low"
-                           name="customRadioInline1"
-                           class="custom-control-input"
-                           required>
-                    <label for="low" 
-                           class="custom-control-label badge badge-danger">
-                        Low priority</label>
-                </div>
-
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio"
-                           id="midlle"
-                           name="customRadioInline1"
-                           class="custom-control-input">
-                    <label for="midlle"
-                           class="custom-control-label badge badge-warning">
-                        Midlle priority</label>
-                </div>
-
-                <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio"
-                           id="hight"
-                           name="customRadioInline1"
-                           class="custom-control-input">
-                    <label for="hight"
-                           class="custom-control-label  badge badge-success">
-                        Hight priority</label>
-                </div> -->
-
-<!-- комент[disabled]="newTodoForm.invalid" -->
-<!-- <button class="btn btn-primary ml-auto  d-flex jusiify-content-between"
-                        [disabled]="newTodoForm.invalid"
-                        type="submit">Save</button>
-            </form>
-        </footer>
-    </form>
-</div> -->
-
-
-<!-- <form [formGroup]="newTodoForm" 
-(ngSubmit)="onSubmit()"
-class="was-validated">
-<div class="form-group">
-  <input class="form-control is-invalid"
-         id="validationTextarea"
-         type="text"
-         placeholder="Todo Title"
-         formControlName="title"
-         required>
-
-         <div *ngIf="isSubmit && newTodoForm.get('title').invalid">
-              <span *ngIf="newTodoForm.get('title').errors.required"
-                    class="text-danger"
-                    >
-                  Input is required.</span>
-              <span *ngIf="newTodoForm.get('title').errors.minlength"
-                     class="text-danger">
-                  Input min length 3.</span>
-          </div>
-      </div> -->

@@ -9,6 +9,7 @@ import { Todo } from '../../interfaces';
 @Injectable({
   providedIn: 'root'
 })
+
 export class TodoService {
   private url = 'http://localhost:3000/todos';
 
@@ -17,7 +18,7 @@ export class TodoService {
   ) { }
 
   getTodos(): Observable<Array<Todo>>{
-    return this.http.get<Array<Todo>>(this.url);
+    return this.http.get<Array<Todo>>(`${this.url}`);
   }
 
   deleteTodo(todoId: number): Observable<any>{

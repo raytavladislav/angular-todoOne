@@ -11,7 +11,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 
 export class NewTodoComponent implements OnInit {
   // @Output() newTodo = new EventEmitter<Todo>();
-
+  
   newTodoForm: FormGroup;
   isSubmit = false;
   // isValid = false;
@@ -20,7 +20,7 @@ export class NewTodoComponent implements OnInit {
   constructor(
     private modalRef: BsModalRef,
     private fb: FormBuilder 
-   ) { }
+  ) { }
 
   ngOnInit(): void {
     this.createNewTodoForm();
@@ -34,16 +34,13 @@ export class NewTodoComponent implements OnInit {
       return;
     }
 
-    // if (this.newTodoForm.get('title').errors.minlength) {
-    //   this.isTrueLength = true;
-    // }
-
     // this.submit(this.newTodoForm.value);
     // this.newTodo.emit(this.newTodoForm.value);
+    this.submit(this.newTodoForm.value);
 
-    this.newTodoForm.reset();
     this.isSubmit = false;
     this.hideModal();
+    this.newTodoForm.reset();
   }
 
   hideModal() {
@@ -52,6 +49,7 @@ export class NewTodoComponent implements OnInit {
 
   private createNewTodoForm(): void{
     this.newTodoForm = this.fb.group({
+      // id: [],
       title:[
         '',
         [
@@ -60,14 +58,37 @@ export class NewTodoComponent implements OnInit {
         ]
       ],
       description: [''],
-      // priority: [
-      //   '',
-      //   Validators.required
-      // ],
-      // isDone: [false]
+      isDone: [false],
+      priority: [
+        '',
+        Validators.required
+      ]
     });
   }
-
   submit(todo: Todo): void {}
-
 }
+
+
+// this.newTodoForm = this.fb.group({
+//   id: [
+//     this.modalRef ? this.modalData.title : '',
+//   ],
+//   title:[
+//     this.modalData ? this.modalData.title : '',
+//     [
+//       Validators.required,
+//       Validators.minLength(3)
+//     ]
+//   ],
+//   description: [
+//     this.modalData ? this.modalData.description : '',
+//   ],
+//   isDone: [
+//     this.modalData ? this.modalData.isDone : false
+//   ],
+//   priority: [
+//     this.modalData ? this.modalData.priority : null,
+//     Validators.required
+//   ]
+// });
+// }

@@ -11,6 +11,9 @@
                 appHighlight>
                 {{todo.title}}
             </h5>
+            <span class="badge badge-pill" 
+                  [ngClass]="bgColorBadges[todo.priority]">
+                  {{todo.priority}}</span>
         </div>
         
         <div class="button-group d-flex justify-content-end">
@@ -19,8 +22,11 @@
                     (click) = "toggleDetails()">
                     {{(!isShowDetails) ? 'Show' : 'Hide'}} details</button>
             <button class="btn btn-outline-danger mr-3"
-                    (click)="deleteTodo(todo.id)">Delete</button>
-            <button class="btn btn-first mr-3">Edit</button>
+                    (click)="deleteTodo(todo.id)">
+                    Delete</button>
+            <button class="btn btn-first mr-3"
+                    (click)="modalEdit(todo)">
+                    Edit</button>
         </div>
     </header>
     
