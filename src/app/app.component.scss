@@ -15,10 +15,12 @@ p{
     }
 }
 
-:host {
+.wrapper{
     display: flex;
     flex-direction: column;
-    position: relative;
-    min-height: 748px;
+    min-height: 100%;
 }
 
+.content{
+    flex: 1 0 auto;
+}

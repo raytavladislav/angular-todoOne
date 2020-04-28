@@ -8,7 +8,7 @@ import { UserService } from 'src/app/core/services/user/user.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
   userId: number;

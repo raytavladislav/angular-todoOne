@@ -10,7 +10,7 @@ import { UserService } from 'src/app/core/services/user/user.service';
 @Component({
   selector: 'app-about-us',
   templateUrl: './about-us.component.html',
-  styleUrls: ['./about-us.component.css']
+  styleUrls: ['./about-us.component.scss']
 })
 export class AboutUsComponent implements OnInit {
   userList: Array<Todo>

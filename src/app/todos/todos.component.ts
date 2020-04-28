@@ -11,7 +11,7 @@ import { NewTodoComponent } from '../pages/todos/new-todo/new-todo.component';
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
-  styleUrls: ['./todos.component.css']
+  styleUrls: ['./todos.component.scss']
 })
 
 export class TodosComponent implements OnInit, OnDestroy {
