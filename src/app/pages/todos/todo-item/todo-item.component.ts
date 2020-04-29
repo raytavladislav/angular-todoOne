@@ -35,7 +35,6 @@ export class TodoItemComponent implements OnInit {
 
   toggleTodo(): void {
     this.todo.isDone = !this.todo.isDone;
-    // this.update.emit(this.todo);
     this.updateTodo(this.todo);
   }
 
@@ -45,7 +44,6 @@ export class TodoItemComponent implements OnInit {
 
   toggleDetails(): void{
     this.isShowDetails = !this.isShowDetails
-    // this.updateTodo(this.todo);
   }
 
   updateTodo(todo: Todo): void {
@@ -53,15 +51,6 @@ export class TodoItemComponent implements OnInit {
   }
 
  editTodo(todo: Todo): void {
-  console.log(this.todo);
-  this.modalRef = this.modalService.show(NewTodoComponent,
-    Object.assign({}, {
-      ignoreBackdropClick: true,
-      initialState: {
-        todoData: this.todo,
-        submit: this.updateTodo.bind(this)
-      }
-    })
-  );
+  this.edit.emit(todo);
   }
 }

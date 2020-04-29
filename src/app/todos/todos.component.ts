@@ -62,7 +62,6 @@ export class TodosComponent implements OnInit, OnDestroy {
         })
       );
 
-
     } else {
       this.titleTodo = true;
       this.todoData = null;
@@ -77,9 +76,7 @@ export class TodosComponent implements OnInit, OnDestroy {
           }
         })
       );
-
     }
-
   }
 
   ngOnDestroy(): void {
@@ -90,7 +87,9 @@ export class TodosComponent implements OnInit, OnDestroy {
   updateTodo(todo: Todo): void {
     this.todoService.updateTodo(todo)
     .pipe(takeUntil(this.unsubscribe))
-    .subscribe()
+    .subscribe(() => {
+      this.getTodos();
+    });
   }
 
   deleteTodo(todoId: number): void {
@@ -105,20 +104,14 @@ export class TodosComponent implements OnInit, OnDestroy {
     const res = await this.todoService.addTodo(todo)
     .toPromise();
     this.getTodos();
-    // .pipe(takeUntil(this.unsubscribe))
-    // .subscribe(() => {
-    //   this.getTodos();
-    // });
   }
 
   private getTodos(): void {
     this.todoService.getTodos()
-    .pipe(takeUntil(this.unsubscribe))
-      .subscribe(
-        data => [
-          this.todoList = data
-        ],
-        error => console.error(error)
-      );
+    .subscribe(data => {
+      this.todoList = data;
+    },
+      error => console.error(error)
+    )
   }
 }
